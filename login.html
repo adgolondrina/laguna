@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Hotspot Login</title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta http-equiv="expires" content="-1" />
+
+	<!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=.5, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" crossorigin="anonymous">
+</head>
+<style type="text/css">
+	html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+	}
+</style>
+
+<body>
+
+$(if chap-id)
+	<form name="sendin" action="$(link-login-only)" method="post">
+		<input type="hidden" name="username" />
+		<input type="hidden" name="password" />
+		<input type="hidden" name="dst" value="$(link-orig)" />
+		<input type="hidden" name="popup" value="true" />
+	</form>
+	
+	<script type="text/javascript" src="/md5.js"></script>
+	<script type="text/javascript">
+	
+	    function doLogin() {
+		document.sendin.username.value = document.login.username.value;
+		document.sendin.password.value = hexMD5('$(chap-id)' + document.login.password.value + '$(chap-challenge)');
+		document.sendin.submit();
+		return false;
+	    }
+	
+	</script>
+$(endif)
+
+	<br>
+	<br>
+	<br>
+	<div class="container">
+		<div class="row">
+			<!-- <div class="col-3"></div> -->
+			<div class="col-6" style="text-align: right; margin: 0; padding: 0; "> <img style="margin: 50px 30px 0px 0px; height: auto; width: 100%; max-width: 100px; " src="../img/laguna2.png"></div>
+			<div class="col-6" style="text-align: left; margin: 0; padding: 0;"> <img style=" height: auto; width: 100%; max-width: 200px;" src="../img/serbisyo.jpg"></div>
+			<!-- <div class="col-3"></div> -->
+		</div>
+		<br>
+		<div class="row">
+			<div class="col" style="text-align: center; padding: 0;"><img style="height: auto; width: 100%; max-width: 400px" src="../img/laguna3.png"></div>
+		</div>
+	</div>
+
+<br>
+<br>
+
+
+	<div class="container" style="padding: 0px 100px 0px 100px;">	
+
+
+			$(if trial == 'yes')
+		<div class="row">
+
+			<div style="text-align: center;" class="col">
+				<a href="$(link-login-only)?dst=$(link-orig-esc)&amp;username=T-$(mac-esc)" type="button" class="btn btn-primary btn-lg">1 DAY FREE WIFI</a>	
+			</div>
+		</div>
+			$(endif)
+		<br>
+	<p class="h6" style="text-align: center;">For PGL Employees Login Using Username/Password</p>
+		<div class="row">
+
+			<div class="col-lg-3"></div>
+			<div class="col-lg-6" style="padding: 20px; ">
+				<form id="kangndo9" name="login" action="$(link-login-only)" method="post" $(if chap-id) onSubmit="return doLogin()" $(endif)>
+					<div class="form-group">
+							<input style="background: #E7E7E7;"  class="form-control form-control-lg" placeholder="Username" type="text" name="username" value="$(username)" required>
+						<br>
+							<input style="background: #E7E7E7; " class="form-control form-control-lg" placeholder="Password" type="password" name="password" required>
+						<br>
+						<div class="text-center">
+							<button style="width: 50%" type="submit" class="btn btn-primary btn-lg">Login</button>
+						</div>
+					</div>
+				</form>
+$(if error)
+		<div class="row">
+<!-- 
+			<div class="col-lg-3">
+			</div> -->
+			<div class="col" style="text-align: center;">
+				<div class="alert alert-danger" role="alert">
+					$(error)
+				</div>
+			</div><!-- 
+			<div class="col-lg-3">
+			</div> -->
+		</div>
+
+$(endif)				
+			</div>
+			<div class="col-lg-3"></div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-3">
+			</div>
+			<div class="col-lg-6" style="text-align: center;">
+				<p class="text-muted" style="text-align: center;">Powered by:</p>
+				<img style="width: 100%; height: auto; max-width: 120px; " src="../img/pldt.png">
+			</div>
+			<div class="col-lg-3">
+			</div>
+		</div>
+
+	</div>
+
+<br>
+<br>
+
+
+
+
+<script type="text/javascript">
+<!--
+  document.login.username.focus();
+//-->
+</script>
+</body>
+</html>
